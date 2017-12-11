@@ -37,7 +37,7 @@ class DigitalClock : Form
       
         shortcut.Description = "Make clock autostart whenever the PC start";
 
-        shortcut.Save();
+        //shortcut.Save();
     }
     public void timer()
     {
