@@ -12,6 +12,8 @@ class DigitalClock : Form
     {
         stylSetting();
         timer();
+        this.MouseClick += dcMouseClick;
+        this.KeyDown += dcKeyDown;
         Shortcut_Start();
     }
 
@@ -130,7 +132,8 @@ class DigitalClock : Form
 
     private void dcKeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Alt && e.KeyCode == Keys.Q)
+        if ( (e.Alt && e.KeyCode == Keys.Q) ||
+            (e.Control && e.KeyCode == Keys.Q))
         {
             Application.Exit();
         }
