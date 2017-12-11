@@ -12,7 +12,6 @@ class DigitalClock : Form
     {
         stylSetting();
         timer();
-        this.MouseClick += dcMouseClick;
         Shortcut_Start();
     }
 
@@ -123,8 +122,17 @@ class DigitalClock : Form
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "DigitalClock";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dcKeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dcMouseClick);
             this.ResumeLayout(false);
 
+    }
+
+    private void dcKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Alt && e.KeyCode == Keys.Q)
+        {
+            Application.Exit();
+        }
     }
 }
