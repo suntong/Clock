@@ -123,6 +123,7 @@ class DigitalClock : Form
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "DigitalClock";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dcMouseClick);
             this.ResumeLayout(false);
 
     }
