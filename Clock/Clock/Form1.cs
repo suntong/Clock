@@ -6,13 +6,37 @@ using IWshRuntimeLibrary;
 
 class DigitalClock : Form
 {
+    double OpacityStep = 0.2;
 
     public DigitalClock()
     {
         stylSetting();
         timer();
+        this.MouseClick += dcMouseClick;
         Shortcut_Start();
     }
+
+    private void dcMouseClick(object sender, MouseEventArgs e)
+    {
+        double Opacity = this.Opacity;
+
+        switch (e.Button)
+        {
+            case MouseButtons.Left:
+                // Left click, increase opacity
+                if (Opacity < 1) 
+                    Opacity += OpacityStep;
+                break;
+
+            case MouseButtons.Right:
+                // Right click, decrease opacity
+                if (Opacity > OpacityStep)
+                    Opacity -= OpacityStep;
+                break;
+        }
+        this.Opacity = Math.Round(Opacity, 1);
+    }
+
     public void stylSetting()
     {
         this.FormBorderStyle = FormBorderStyle.None;
